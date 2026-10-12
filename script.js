@@ -1,5 +1,6 @@
 document.querySelectorAll('[data-name]').forEach(el => { el.textContent = CAFE_NAME; });
-document.title = `${CAFE_NAME} | Café And Brunch`;
+document.querySelectorAll('[data-kind]').forEach(el => { el.textContent = CAFE_KIND; });
+document.title = `${CAFE_NAME} ${CAFE_KIND}`;
 
 const card = item => `
   <article class="card">

@@ -2,7 +2,9 @@
 // tags are optional and show as small pills on the photo.
 const U = id => `https://images.unsplash.com/photo-${id}?w=800&h=1000&q=80&auto=format&fit=crop`;
 
-const CAFE_NAME = 'Slow Sunday';
+// "More" is "more" in English and "the sea" in Croatian.
+const CAFE_NAME = 'More';
+const CAFE_KIND = 'Café & Brunch';
 
 const MENU = {
   brunch: [
