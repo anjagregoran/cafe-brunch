@@ -278,3 +278,49 @@ h1, h2, h3, p, blockquote { margin: 0; }
   .card { flex-basis: 62vw; }
   .footer-cols { grid-template-columns: 1fr 1fr; }
 }
+
+/* Story page */
+.beliefs .pill { margin-top: 44px; }
+.story .label { font-size: 11px; letter-spacing: 1.2px; }
+.story-intro { max-width: 860px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) var(--gutter) clamp(40px, 5vw, 64px); text-align: center; }
+.story-intro h1 { margin: 22px 0 26px; font: 300 clamp(44px, 6.4vw, 84px)/1.05 var(--serif); }
+.lede { max-width: 56ch; margin: 0 auto; font: 300 clamp(18px, 1.7vw, 22px)/1.5 var(--serif); }
+.places { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); padding: 0 var(--gutter); }
+.place {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(340px, 42vw, 560px);
+  padding: clamp(24px, 3.4vw, 48px);
+  border-radius: 30px;
+}
+.place h2 { margin: 14px 0 16px; font: 300 clamp(36px, 4.6vw, 64px)/1.05 var(--serif); }
+.place p:last-child { max-width: 38ch; font-size: 13px; letter-spacing: 0.2px; }
+.place-green { background: #dfe5d2; }
+.place-blue { background: #d5e0e6; }
+.name-note { max-width: 900px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) var(--gutter); text-align: center; }
+.name-note h2 { margin: 22px 0 24px; font: 300 clamp(28px, 3.6vw, 46px)/1.18 var(--serif); }
+.name-note p:last-child { max-width: 60ch; margin: 0 auto; font-size: 14px; line-height: 1.8; }
+.bring { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(28px, 6vw, 90px); padding: clamp(56px, 7vw, 100px) clamp(16px, 4.4vw, 56px); }
+.bring-tint { margin: 0 var(--gutter) clamp(28px, 4vw, 48px); border-radius: 30px; background: var(--card); }
+.bring-head h2 { margin-top: 18px; font: 300 clamp(32px, 3.8vw, 52px)/1.1 var(--serif); }
+.bring-list { margin: 0; padding: 0; list-style: none; }
+.bring-list li {
+  display: grid;
+  grid-template-columns: 44px minmax(150px, 0.8fr) 1.6fr;
+  gap: 8px 20px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-top: 1px solid rgba(69, 82, 62, 0.25);
+}
+.bring-list li:last-child { border-bottom: 1px solid rgba(69, 82, 62, 0.25); }
+.bring-list span { font-size: 11px; letter-spacing: 1.2px; }
+.bring-list h3 { font: 300 24px/1.2 var(--serif); }
+.bring-list p { font-size: 13px; line-height: 1.7; }
+.story .band { margin-top: 0; }
+
+@media (max-width: 820px) {
+  .places, .bring { grid-template-columns: 1fr; }
+  .bring-list li { grid-template-columns: 32px 1fr; }
+  .bring-list p { grid-column: 2; }
+}
