@@ -2,13 +2,15 @@ document.querySelectorAll('[data-name]').forEach(el => { el.textContent = CAFE_N
 document.querySelectorAll('[data-kind]').forEach(el => { el.textContent = CAFE_KIND; });
 document.title = `${CAFE_NAME} ${CAFE_KIND}`;
 
-const card = item => `
+const TINTS = ['#dfe5d2', '#f1e6c8', '#ecd9d2', '#d5e0e6'];
+
+const card = (item, i) => `
   <article class="card">
-    <div class="card-img">
-      <img loading="lazy" src="${item.img}" alt="${item.name}">
-      <div class="tags">${item.tags.map((t, i) => `<span class="tag${i === 0 && t === 'New' ? ' tag-solid' : ''}">${t}</span>`).join('')}</div>
+    <div class="card-img"${item.img ? '' : ` style="background:${TINTS[i % TINTS.length]}"`}>
+      ${item.img ? `<img loading="lazy" src="${item.img}" alt="${item.name}">` : `<span class="card-word">${item.name}</span>`}
+      <div class="tags">${(item.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
     </div>
-    <div class="card-head"><h3>${item.name}</h3><span class="price">${item.price}</span></div>
+    <div class="card-head"><h3>${item.name}</h3>${item.price ? `<span class="price">${item.price}</span>` : ''}</div>
     <p>${item.note}</p>
   </article>`;
 
