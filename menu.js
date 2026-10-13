@@ -8,11 +8,19 @@ const CAFE_KIND = 'Café & Brunch';
 // price is optional too, add it when the prices are decided.
 const MENU = {
   coffee: [
+    { name: 'Espresso', art: 'espresso', note: 'Short, strong and the start of everything.' },
+    { name: 'Macchiato', art: 'macchiato', note: 'An espresso with a spoon of milk foam.' },
+    { name: 'Americano', art: 'americano', note: 'Espresso made long with hot water.' },
     { name: 'Cappuccino', art: 'cappuccino', note: 'Silky milk over a double shot.' },
     { name: 'Flat White', art: 'flatwhite', note: 'Smaller, stronger and very smooth.' },
+    { name: 'Latte', art: 'latte', note: 'Mostly milk, gentle and warm.' },
+    { name: 'Mocha', art: 'mocha', note: 'Coffee and chocolate in one cup.' },
     { name: 'Matcha Latte', art: 'matcha', note: 'Whisked to order with the milk you like.' },
     { name: 'Iced Latte', art: 'icedlatte', note: 'Espresso poured over milk and plenty of ice.' },
     { name: 'Iced Matcha', art: 'icedmatcha', note: 'Bright green, cold and lightly sweet.' },
+  ],
+  season: [
+    { name: 'Coffee Of The Season', art: 'seasonal', note: 'A special coffee that changes with every season.', scribble: 'new every season!' },
   ],
   kitchen: [
     { name: 'Egg & Avo Toast', art: 'toast', note: 'With tomatoes picked from the garden.' },
@@ -21,6 +29,7 @@ const MENU = {
     { name: 'Charcuterie Board', art: 'board', note: 'A board for the table, made for sharing.' },
   ],
   bakery: [
+    { name: 'Muffins', art: 'muffin', note: 'Baked in the morning and still warm if you are early.' },
     { name: 'Banana Bread', art: 'loaf', note: 'Baked in house and cut into thick slices.' },
     { name: 'Blueberry Lemon Bread', art: 'lemonloaf', note: 'Sweet blueberries with a bright bit of lemon.' },
     { name: 'Cheesecake', art: 'cheesecake', note: 'Worth asking about when you come in.', scribble: 'not every day!' },

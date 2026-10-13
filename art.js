@@ -133,24 +133,36 @@ const ART = {
 // so the whole drinks menu looks like a set.
 
 // art: 'heart' or 'leaf' poured into the top. cup: the colour of the cup itself.
-const hotCup = ({ surface, art, cup, shade }) => {
-  const pour = art === 'heart'
-    ? 'M60 61c-10-5-14-9-10-12 3-2 8 0 10 3 2-3 7-5 10-3 4 3 0 7-10 12z'
-    : 'M60 46c9 2 14 6 11 10-3 3-8 4-11 7-3-3-8-4-11-7-3-4 2-8 11-10z';
-  const veins = art === 'heart' ? '' : '<path d="M60 48v13M53 52q7 4 14 0M54 56q6 3 12 0"/>';
+const hotCup = ({ surface, art, cup, shade, small, extras = { i: '', p: '' } }) => {
+  const shapes = {
+    heart: 'M60 61c-10-5-14-9-10-12 3-2 8 0 10 3 2-3 7-5 10-3 4 3 0 7-10 12z',
+    leaf: 'M60 46c9 2 14 6 11 10-3 3-8 4-11 7-3-3-8-4-11-7-3-4 2-8 11-10z',
+    dot: 'M60 49c6 0 10 2 10 5s-4 5-10 5-10-2-10-5 4-5 10-5z',
+  };
+  const pour = shapes[art] || '';
+  const veins = art === 'leaf' ? '<path d="M60 48v13M53 52q7 4 14 0M54 56q6 3 12 0"/>' : '';
+  // An espresso cup is the same drawing, just smaller.
+  const wrap = s => (small ? `<g transform="translate(20 34) scale(0.66)">${s}</g>` : s);
   return {
-    i: '<ellipse cx="60" cy="93" rx="47" ry="12"/><path d="M32 92c6 6 50 6 56 0"/>'
+    i: wrap('<ellipse cx="60" cy="93" rx="47" ry="12"/><path d="M32 92c6 6 50 6 56 0"/>'
       + '<ellipse cx="60" cy="54" rx="33" ry="11"/><path d="M27 54c0 25 12 39 33 39s33-14 33-39"/>'
       + '<path d="M91 60c14-5 23 2 21 12-2 9-14 13-24 10"/><path d="M92 67c7-2 12 0 11 5-1 4-7 6-13 5"/>'
-      + `<ellipse cx="60" cy="54" rx="28" ry="8.5"/><path d="${pour}"/>${veins}`
-      + '<path d="M46 34c-4-7 4-9 0-16M60 32c-4-7 4-9 0-16M74 34c-4-7 4-9 0-16"/>',
-    p: SHADOW(62, 103, 46, 7)
+      + `<ellipse cx="60" cy="54" rx="28" ry="8.5"/>${pour ? `<path d="${pour}"/>` : '<path d="M42 55c6 3 14 4 22 3"/>'}${veins}`
+      + '<path d="M46 34c-4-7 4-9 0-16M60 32c-4-7 4-9 0-16M74 34c-4-7 4-9 0-16"/>') + extras.i,
+    p: wrap(SHADOW(62, 103, 46, 7)
       + '<ellipse cx="60" cy="93" rx="47" ry="12" fill="#f6f1e7"/><path d="M13 93c8 14 86 14 94 0 2 16-96 16-94 0z" fill="#c9d3da"/>'
       + `<path d="M27 54c0 25 12 39 33 39s33-14 33-39c-8 13-58 13-66 0z" fill="${cup}"/><path d="M70 91c14-5 21-18 23-37-1 23-9 34-23 37z" fill="${shade}"/>`
       + `<path d="M91 60c14-5 23 2 21 12-2 9-14 13-24 10l2-5c6 1 12-1 13-5 1-5-4-7-11-5z" fill="${cup}"/>`
-      + `<ellipse cx="60" cy="54" rx="33" ry="11" fill="${cup}"/><ellipse cx="60" cy="54" rx="28" ry="8.5" fill="${surface}"/><path d="${pour}" fill="#fff8ea"/>`,
-    h: '<path d="M35 62c1 10 5 18 11 24" stroke-width="3.5"/><path d="M40 51c5-3 11-4 16-4" stroke-width="1.5"/>',
+      + `<ellipse cx="60" cy="54" rx="33" ry="11" fill="${cup}"/><ellipse cx="60" cy="54" rx="28" ry="8.5" fill="${surface}"/>${pour ? `<path d="${pour}" fill="#fff8ea"/>` : '<ellipse cx="60" cy="54" rx="28" ry="8.5" fill="none" stroke="#c9925a" stroke-width="3"/>'}`) + extras.p,
+    h: wrap('<path d="M35 62c1 10 5 18 11 24" stroke-width="3.5"/><path d="M40 51c5-3 11-4 16-4" stroke-width="1.5"/>'),
   };
+};
+
+// A little pumpkin and a falling leaf, for the coffee that changes with the season.
+const SEASON = {
+  i: '<path d="M100 88c8-2 14 3 14 10s-6 11-14 11-14-4-14-11 6-12 14-10z"/><path d="M100 88c-4 5-4 16 0 21M100 88c4 5 4 16 0 21"/><path d="M100 88c0-4 2-6 5-7"/>'
+    + '<path d="M14 30c2-9 9-13 17-11-1 9-7 13-17 11z"/><path d="M14 30l12-7"/>',
+  p: '<path d="M100 88c8-2 14 3 14 10s-6 11-14 11-14-4-14-11 6-12 14-10z" fill="#ee9a3c"/><path d="M14 30c2-9 9-13 17-11-1 9-7 13-17 11z" fill="#d9763a"/>',
 };
 
 // stops: the liquid's colours from top to bottom. extras: the garnish, drawn as { i, p }.
@@ -294,7 +306,27 @@ const NEW_ART = {
     h: '<path d="M24 70c2 12 8 20 16 26" stroke-width="3"/>',
   },
 
+  muffin: {
+    i: '<path d="M34 66l7 38h38l7-38z"/><path d="M45 67l4 37M55 67l2 37M65 67l-1 37M75 67l-4 37"/>'
+      + '<path d="M30 66c-7-10-1-23 11-25 3-11 15-16 25-12 11-4 23 4 23 15 9 5 10 16 1 22z"/>'
+      + '<circle cx="46" cy="52" r="5"/><circle cx="62" cy="43" r="5"/><circle cx="77" cy="54" r="5"/><circle cx="60" cy="58" r="4"/><path d="M44 50l2 2 2-2M60 41l2 2 2-2M75 52l2 2 2-2"/>'
+      + '<path d="M38 60l2 1M70 62l2-1M52 38l2 1M82 46l1 2"/>'
+      + '<circle cx="100" cy="98" r="5"/><circle cx="110" cy="103" r="4.5"/><path d="M98 96l2 2 2-2"/>',
+    p: SHADOW(62, 108, 42, 6)
+      + '<path d="M34 66l7 38h38l7-38z" fill="#f3cfd3"/><path d="M66 66h20l-7 38H64z" fill="#dba1aa"/>'
+      + '<path d="M30 66c-7-10-1-23 11-25 3-11 15-16 25-12 11-4 23 4 23 15 9 5 10 16 1 22z" fill="url(#g-bun)"/>'
+      + '<circle cx="46" cy="52" r="5" fill="#5868b4"/><circle cx="62" cy="43" r="5" fill="#6b7bc4"/><circle cx="77" cy="54" r="5" fill="#5868b4"/><circle cx="60" cy="58" r="4" fill="#6b7bc4"/>'
+      + '<circle cx="100" cy="98" r="5" fill="#5868b4"/><circle cx="110" cy="103" r="4.5" fill="#6b7bc4"/>',
+    h: '<path d="M40 48c3-5 8-8 13-9" stroke-width="3"/>',
+  },
+
   // ---------- drinks
+  espresso: hotCup({ surface: '#5a3622', cup: '#fbf7ee', shade: '#d3dbe0', small: true }),
+  macchiato: hotCup({ surface: '#6a4129', art: 'dot', cup: '#eab79e', shade: '#cf8f74', small: true }),
+  americano: hotCup({ surface: '#3d2a1e', cup: '#c9dcea', shade: '#a3bccd' }),
+  latte: hotCup({ surface: '#c99866', art: 'leaf', cup: '#f3e6b8', shade: '#dcc98a' }),
+  mocha: hotCup({ surface: '#6b4630', art: 'heart', cup: '#d9cfe6', shade: '#b9a9cf' }),
+  seasonal: hotCup({ surface: '#c98a4e', art: 'leaf', cup: '#f3bd86', shade: '#d8935a', extras: SEASON }),
   cappuccino: hotCup({ surface: '#b9814f', art: 'heart', cup: '#fbf7ee', shade: '#d3dbe0' }),
   flatwhite: hotCup({ surface: '#a8713f', art: 'leaf', cup: '#cfe0c0', shade: '#a3bd90' }),
   matcha: hotCup({ surface: '#9dbb5e', art: 'heart', cup: '#f3cfd3', shade: '#dba1aa' }),
