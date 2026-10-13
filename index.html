@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Instrument+Sans:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
@@ -31,45 +31,43 @@
 
 <main id="top">
 
-  <section class="hero">
-    <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=2000&q=80&auto=format&fit=crop" alt="A sunlit café with wooden tables and hanging plants">
+  <section class="hero hero-art">
     <div class="hero-text">
+      <p class="label">Marcellus, Michigan &amp; Kastav, Croatia</p>
       <h1>Stay For One More.</h1>
       <p>Very good coffee, something freshly baked, and a table that is yours for as long as you like.</p>
-      <a class="pill pill-light" href="#coffee">See The Menu</a>
+      <a class="pill" href="#coffee">See The Menu</a>
     </div>
+    <div class="hero-pic" data-art="cafe" data-wash="3"></div>
   </section>
 
-  <section class="row" id="coffee">
-    <div class="label-art"><span data-art="beans"></span><h2 class="label">From The Coffee Bar</h2><span data-art="moka"></span></div>
-    <div class="scroller" data-row="coffee"></div>
-    <div class="progress"><span></span></div>
+  <section class="sheet-wrap">
+    <div class="sheet">
+      <span class="clip"></span>
+      <p class="sheet-over">More Café &amp; Brunch</p>
+      <h2 class="hand">Menu</h2>
+      <span class="sheet-doodle sheet-doodle-a" data-art="beans"></span>
+      <span class="sheet-doodle sheet-doodle-b" data-art="moka"></span>
+      <div class="sheet-group" id="coffee" data-sheet="coffee" data-title="From The Coffee Bar"></div>
+      <div class="sheet-group" id="kitchen" data-sheet="kitchen" data-title="From The Kitchen"></div>
+      <div class="sheet-group" id="bakery" data-sheet="bakery" data-title="From The Bakery"></div>
+      <div class="sheet-group" data-sheet="fresh" data-title="Cold And Fresh"></div>
+    </div>
   </section>
 
   <section class="two-up">
     <article>
-      <a class="tile" href="#coffee"><img loading="lazy" src="https://images.unsplash.com/photo-1670404161009-29548c027d06?w=1400&q=80&auto=format&fit=crop" alt="A hand holding a cup of coffee with latte art"></a>
+      <a class="tile tile-art" href="#coffee"><span data-art="cappuccino" data-wash="2"></span></a>
       <h2>Coffee,<br>Made Slowly</h2>
       <p>Pulled by hand and poured with care,<br>one cup at a time.</p>
       <a class="pill" href="#coffee">Visit The Coffee Bar</a>
     </article>
     <article>
-      <a class="tile" href="#visit"><img loading="lazy" src="https://images.unsplash.com/photo-1771276046005-9de355046e70?w=1400&q=80&auto=format&fit=crop" alt="An outdoor terrace with umbrellas and lush greenery"></a>
+      <a class="tile tile-art" href="#visit"><span data-art="garden" data-wash="0"></span></a>
       <h2>The Garden<br>Table</h2>
       <p>When the sun is out, the best seats<br>in the house are outside it.</p>
       <a class="pill" href="#visit">Plan Your Visit</a>
     </article>
-  </section>
-
-  <section class="sheet-wrap" id="kitchen">
-    <div class="sheet">
-      <span class="clip"></span>
-      <p class="sheet-over">More Café &amp; Brunch</p>
-      <h2 class="hand">Menu</h2>
-      <div class="sheet-group" data-sheet="kitchen" data-title="From The Kitchen"></div>
-      <div class="sheet-group" id="bakery" data-sheet="bakery" data-title="From The Bakery"></div>
-      <div class="sheet-group" data-sheet="fresh" data-title="Cold And Fresh"></div>
-    </div>
   </section>
 
   <div class="doodle" data-art="waves"></div>
@@ -88,7 +86,7 @@
         <cite>On Food</cite>
       </blockquote>
       <blockquote>
-        <span class="mark" data-art="cup"></span>
+        <span class="mark" data-art="cappuccino"></span>
         <p>&ldquo;A second coffee is never a bad idea, and neither is staying for a third.&rdquo;</p>
         <cite>On Coffee</cite>
       </blockquote>
@@ -96,8 +94,9 @@
     <a class="pill" href="story.html">Read Our Story</a>
   </section>
 
-  <section class="band">
-    <img loading="lazy" src="https://images.unsplash.com/photo-1732472613570-8618d77339dd?w=2000&q=80&auto=format&fit=crop" alt="A quiet corner table beside a bright window">
+  <section class="band band-art">
+    <span class="band-doodle band-doodle-a" data-art="lily" data-wash="1"></span>
+    <span class="band-doodle band-doodle-b" data-art="icedlatte" data-wash="2"></span>
     <div class="band-text">
       <h2>A slow morning is the best thing we know how to make.</h2>
       <a href="#visit">Come And Stay A While</a>
@@ -157,8 +156,8 @@
   <p class="copyright">&copy; 2026 <span data-name>More</span> <span data-kind>Café &amp; Brunch</span>. All Rights Reserved.</p>
 </footer>
 
-<script src="menu.js?v=11"></script>
-<script src="art.js?v=11"></script>
-<script src="script.js?v=11"></script>
+<script src="menu.js?v=13"></script>
+<script src="art.js?v=13"></script>
+<script src="script.js?v=13"></script>
 </body>
 </html>

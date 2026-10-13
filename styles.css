@@ -446,3 +446,52 @@ h1, h2, h3, p, blockquote { margin: 0; }
 .ink-classic .paint { mix-blend-mode: normal; opacity: 0.9; }
 .mark:has(.ink-classic) { width: 64px; height: 64px; margin-top: 10px; margin-bottom: 24px; }
 .crest-small { font-size: 5.6px; letter-spacing: 0.9px; }
+
+/* Everything is a drawing */
+.hl { stroke: #fff; fill: none; opacity: 0.85; }
+.sign-text { font: 400 17px 'Cormorant Garamond', serif; letter-spacing: 3px; fill: var(--sketch); stroke: none; text-anchor: middle; }
+.hero-art {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: var(--gutter);
+  height: auto;
+  min-height: 0;
+  padding: clamp(16px, 3vw, 40px) clamp(16px, 4.4vw, 56px) clamp(32px, 5vw, 64px);
+}
+.hero-art::after { display: none; }
+.hero-art .hero-text { position: static; max-width: 440px; color: var(--ink); }
+.hero-art .label { margin-bottom: 18px; font-size: 11px; letter-spacing: 1.6px; text-align: left; }
+.hero-art h1 { font-weight: 300; font-size: clamp(44px, 5.6vw, 76px); line-height: 1.02; }
+.hero-art .hero-text p:not(.label) { margin: 18px 0 26px; font: 300 clamp(17px, 1.5vw, 20px)/1.5 var(--serif); }
+.hero-pic { position: relative; }
+.hero-pic .ink { position: relative; height: auto; }
+.hero-pic .wash { inset: -4% -6%; width: 112%; height: 108%; }
+.tile-art { position: relative; display: flex; align-items: center; justify-content: center; background: #f6f3ea; }
+.tile-art span { position: relative; width: 62%; aspect-ratio: 1; }
+.tile-art .ink { position: relative; transition: transform 1.6s ease; }
+.tile-art:hover .ink { transform: rotate(-3deg) scale(1.04); }
+.tile-art .wash { inset: -30%; width: 160%; height: 160%; }
+.band-art { height: auto; padding: clamp(80px, 11vw, 160px) var(--gutter); background: #f3efe4; overflow: hidden; }
+.band-art::after { display: none; }
+.band-art .band-text { position: relative; inset: auto; color: var(--ink); }
+.band-doodle { position: absolute; width: clamp(110px, 17vw, 230px); aspect-ratio: 1; top: 50%; margin-top: clamp(-115px, -8.5vw, -55px); }
+.band-doodle .ink { position: relative; }
+.band-doodle .wash { inset: -35%; width: 170%; height: 170%; }
+.band-doodle-a { left: 5%; transform: rotate(-6deg); }
+.band-doodle-b { right: 5%; transform: rotate(5deg); }
+.sheet-doodle { position: absolute; top: clamp(40px, 5vw, 64px); width: clamp(64px, 8vw, 104px); aspect-ratio: 1; }
+.sheet-doodle-a { right: clamp(110px, 14vw, 200px); transform: rotate(8deg); }
+.sheet-doodle-b { right: clamp(24px, 5vw, 72px); transform: rotate(-4deg); }
+.sheet-pic { flex-basis: clamp(160px, 20vw, 230px); }
+@media (max-width: 820px) {
+  .hero-art { grid-template-columns: 1fr; }
+  .hero-art .hero-text { order: 2; text-align: center; margin: 0 auto; }
+  .hero-art .label { text-align: center; }
+  .band-doodle { position: relative; display: inline-block; top: auto; left: auto; right: auto; margin: 0 8px 16px; width: 110px; }
+  .band-art { text-align: center; }
+  .sheet-doodle { width: 54px; top: 34px; }
+  .sheet-doodle-a { right: 84px; }
+  .sheet-doodle-b { right: 22px; }
+  .sheet-pic { flex-basis: 128px; }
+}
