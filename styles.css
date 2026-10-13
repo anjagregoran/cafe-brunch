@@ -414,3 +414,35 @@ h1, h2, h3, p, blockquote { margin: 0; }
   .sheet-item:nth-child(even) { transform: none; }
 }
 .place .label { text-align: left; }
+
+/* Ink and watercolour, second pass */
+:root { --sketch: #3f382f; }
+.ink { stroke: var(--sketch); stroke-width: 1.15; }
+.ink-2 { opacity: 0.45; stroke-width: 0.8; }
+.paint { mix-blend-mode: multiply; opacity: 1; }
+.arrow, .waves { stroke-width: 1.4; }
+.footer-crest .ink { stroke: var(--footer-text); }
+.crest text { fill: var(--sketch); }
+.footer-crest text { fill: var(--footer-text); }
+.crest-name { font-size: 27px; letter-spacing: 4px; }
+.crest-small { font-size: 6.4px; letter-spacing: 1.5px; }
+.intro-crest { width: 190px; }
+.footer-crest { width: 128px; }
+.sheet {
+  background-color: #fffdf8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .3 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.sheet-pic { flex-basis: clamp(150px, 19vw, 215px); }
+.sheet-items { gap: 0 clamp(16px, 4vw, 56px); }
+.sheet-item { padding: 8px 0; }
+.sheet-text h3, .sheet h2, .sheet-text em { color: var(--sketch); }
+.sheet-text em { color: #b0563f; }
+.label-art { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 28px; }
+.label-art .label { margin: 0; }
+.label-art span { width: 62px; height: 62px; }
+.mark { width: 84px; height: 84px; }
+.mark-lg { width: 130px; height: 130px; }
+.ink-classic { stroke: var(--ink); stroke-width: 1.5; }
+.ink-classic .paint { mix-blend-mode: normal; opacity: 0.9; }
+.mark:has(.ink-classic) { width: 64px; height: 64px; margin-top: 10px; margin-bottom: 24px; }
+.crest-small { font-size: 5.6px; letter-spacing: 0.9px; }

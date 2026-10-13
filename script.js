@@ -58,4 +58,9 @@ document.querySelectorAll('[data-sheet]').forEach(group => {
 const reveal = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); reveal.unobserve(e.target); } });
 }, { threshold: 0.12 });
-document.querySelectorAll('main > section:not(.hero), .doodle').forEach(el => { el.classList.add('slow'); reveal.observe(el); });
+document.querySelectorAll('main > section:not(.hero), .doodle').forEach(el => {
+  // Anything already on screen when the page opens is simply shown.
+  if (el.getBoundingClientRect().top < window.innerHeight) return;
+  el.classList.add('slow');
+  reveal.observe(el);
+});
