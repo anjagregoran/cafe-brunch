@@ -7,8 +7,8 @@
 <meta name="description" content="The story of More Café &amp; Brunch, one café with two homes in Marcellus, Michigan and Kastav, Croatia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Instrument+Sans:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -32,6 +32,7 @@
 <main id="top" class="story">
 
   <section class="story-intro">
+    <div class="intro-crest" data-art="crest" data-wash="0"></div>
     <p class="label">Our Story</p>
     <h1>Two homes,<br>one long morning.</h1>
     <p class="lede">More is one café with two front doors, the first in Marcellus, Michigan and the second in Kastav, Croatia. Each one brings the other a little of what it has been missing.</p>
@@ -46,16 +47,20 @@
 
   <section class="places">
     <article class="place place-green">
+      <span class="place-art" data-art="blueberry" data-wash="0"></span>
       <p class="label">The USA</p>
       <h2>Marcellus,<br>Michigan</h2>
       <p>A small village in the southwest of the state, with lakes, orchards and farmland all around it.</p>
     </article>
     <article class="place place-blue">
+      <span class="place-art" data-art="olive" data-wash="1"></span>
       <p class="label">Croatia</p>
       <h2>Kastav,<br>Croatia</h2>
       <p>An old hilltop town with stone streets and a view that runs all the way down to the Kvarner bay.</p>
     </article>
   </section>
+
+  <div class="doodle" data-art="waves"></div>
 
   <section class="name-note">
     <p class="label">The Name</p>
@@ -127,18 +132,13 @@
       <p>In Croatian, &ldquo;more&rdquo; means the sea, and that is where our slow mornings come from.</p>
     </div>
   </div>
-  <svg class="emblem" viewBox="0 0 80 80" aria-hidden="true">
-    <circle cx="40" cy="40" r="38"/>
-    <path d="M24 38h28v6a14 14 0 0 1-28 0z"/>
-    <path d="M52 40h3a5 5 0 0 1 0 10h-4"/>
-    <path d="M20 62h36"/>
-    <path d="M32 30c-3-4 3-6 0-10M40 30c-3-4 3-6 0-10M48 30c-3-4 3-6 0-10"/>
-  </svg>
+  <div class="footer-crest" data-art="crest"></div>
   <p class="copyright">&copy; 2026 <span data-name>More</span> <span data-kind>Café &amp; Brunch</span>. All Rights Reserved.</p>
 </footer>
 
-<script src="menu.js"></script>
-<script src="script.js"></script>
+<script src="menu.js?v=6"></script>
+<script src="art.js?v=6"></script>
+<script src="script.js?v=6"></script>
 <script>document.title = `Our Story | ${CAFE_NAME} ${CAFE_KIND}`;</script>
 </body>
 </html>

@@ -2,12 +2,10 @@ document.querySelectorAll('[data-name]').forEach(el => { el.textContent = CAFE_N
 document.querySelectorAll('[data-kind]').forEach(el => { el.textContent = CAFE_KIND; });
 document.title = `${CAFE_NAME} ${CAFE_KIND}`;
 
-const TINTS = ['#dfe5d2', '#f1e6c8', '#ecd9d2', '#d5e0e6'];
-
 const card = (item, i) => `
   <article class="card">
-    <div class="card-img"${item.img ? '' : ` style="background:${TINTS[i % TINTS.length]}"`}>
-      ${item.img ? `<img loading="lazy" src="${item.img}" alt="${item.name}">` : `<span class="card-word">${item.name}</span>`}
+    <div class="card-img${item.img ? '' : ' card-art'}">
+      ${item.img ? `<img loading="lazy" src="${item.img}" alt="${item.name}">` : wash(i) + icon(item.art)}
       <div class="tags">${(item.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
     </div>
     <div class="card-head"><h3>${item.name}</h3>${item.price ? `<span class="price">${item.price}</span>` : ''}</div>
@@ -40,3 +38,24 @@ toggle.addEventListener('click', () => {
 nav.addEventListener('click', e => {
   if (e.target.tagName === 'A' && nav.classList.contains('open')) toggle.click();
 });
+
+const sheetItem = item => `
+  <div class="sheet-item">
+    <div class="sheet-pic">${icon(item.art)}</div>
+    <div class="sheet-text">
+      ${ARROW}
+      <h3 class="hand">${item.name}${item.price ? ` <span>${item.price}</span>` : ''}</h3>
+      <p>${item.note}</p>
+      ${item.scribble ? `<em class="hand">${item.scribble}</em>` : ''}
+    </div>
+  </div>`;
+
+document.querySelectorAll('[data-sheet]').forEach(group => {
+  group.innerHTML = `<h3 class="sheet-title">${group.dataset.title}</h3><div class="sheet-items">${MENU[group.dataset.sheet].map(sheetItem).join('')}</div>`;
+});
+
+// Sections drift in gently as you reach them.
+const reveal = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); reveal.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('main > section:not(.hero), .doodle').forEach(el => { el.classList.add('slow'); reveal.observe(el); });

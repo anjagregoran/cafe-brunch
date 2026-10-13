@@ -7,8 +7,8 @@
 <meta name="description" content="A café and brunch place where the coffee is very good, the baking is fresh and nobody is in a hurry.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Instrument+Sans:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -61,35 +61,39 @@
     </article>
   </section>
 
-  <section class="row" id="kitchen">
-    <h2 class="label">From The Kitchen</h2>
-    <div class="scroller" data-row="kitchen"></div>
-    <div class="progress"><span></span></div>
+  <section class="sheet-wrap" id="kitchen">
+    <div class="sheet">
+      <span class="clip"></span>
+      <p class="sheet-over">More Café &amp; Brunch</p>
+      <h2 class="hand">Menu</h2>
+      <div class="sheet-group" data-sheet="kitchen" data-title="From The Kitchen"></div>
+      <div class="sheet-group" id="bakery" data-sheet="bakery" data-title="From The Bakery"></div>
+      <div class="sheet-group" data-sheet="fresh" data-title="Cold And Fresh"></div>
+    </div>
   </section>
+
+  <div class="doodle" data-art="waves"></div>
 
   <section class="beliefs" id="story">
     <h2 class="label">What We Believe</h2>
     <div class="beliefs-grid">
       <blockquote>
+        <span class="mark" data-art="sun"></span>
         <p>&ldquo;Breakfast has no closing time, so we serve it until the last guest leaves.&rdquo;</p>
         <cite>On Time</cite>
       </blockquote>
       <blockquote>
+        <span class="mark" data-art="olive"></span>
         <p>&ldquo;Good ingredients need very little done to them, and we try to stay out of their way.&rdquo;</p>
         <cite>On Food</cite>
       </blockquote>
       <blockquote>
+        <span class="mark" data-art="cup"></span>
         <p>&ldquo;A second coffee is never a bad idea, and neither is staying for a third.&rdquo;</p>
         <cite>On Coffee</cite>
       </blockquote>
     </div>
     <a class="pill" href="story.html">Read Our Story</a>
-  </section>
-
-  <section class="row" id="bakery">
-    <h2 class="label">From The Bakery</h2>
-    <div class="scroller" data-row="bakery"></div>
-    <div class="progress"><span></span></div>
   </section>
 
   <section class="band">
@@ -101,17 +105,21 @@
   </section>
 
   <section class="visit" id="visit">
+    <span class="mark mark-lg" data-art="lily" data-wash="3"></span>
     <h2>Pull up a chair</h2>
     <div class="visit-grid">
       <div>
+        <span class="mark" data-art="sun" data-wash="0"></span>
         <h3>Hours</h3>
         <p>Open Daily<br>Opening Hours Coming Soon</p>
       </div>
       <div>
+        <span class="mark" data-art="kiosk" data-wash="1"></span>
         <h3>Find Us</h3>
         <p>Address Coming Soon<br>Walk-Ins Always Welcome</p>
       </div>
       <div>
+        <span class="mark" data-art="letter" data-wash="2"></span>
         <h3>Say Hello</h3>
         <p>Phone And Email Coming Soon<br>Tables For Groups On Request</p>
       </div>
@@ -145,17 +153,12 @@
       <p>In Croatian, &ldquo;more&rdquo; means the sea, and that is where our slow mornings come from.</p>
     </div>
   </div>
-  <svg class="emblem" viewBox="0 0 80 80" aria-hidden="true">
-    <circle cx="40" cy="40" r="38"/>
-    <path d="M24 38h28v6a14 14 0 0 1-28 0z"/>
-    <path d="M52 40h3a5 5 0 0 1 0 10h-4"/>
-    <path d="M20 62h36"/>
-    <path d="M32 30c-3-4 3-6 0-10M40 30c-3-4 3-6 0-10M48 30c-3-4 3-6 0-10"/>
-  </svg>
+  <div class="footer-crest" data-art="crest"></div>
   <p class="copyright">&copy; 2026 <span data-name>More</span> <span data-kind>Café &amp; Brunch</span>. All Rights Reserved.</p>
 </footer>
 
-<script src="menu.js"></script>
-<script src="script.js"></script>
+<script src="menu.js?v=6"></script>
+<script src="art.js?v=6"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
