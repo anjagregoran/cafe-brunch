@@ -148,12 +148,13 @@ const hotCup = ({ surface, art, cup, shade, small, extras = { i: '', p: '' } }) 
       + '<ellipse cx="60" cy="54" rx="33" ry="11"/><path d="M27 54c0 25 12 39 33 39s33-14 33-39"/>'
       + '<path d="M91 60c14-5 23 2 21 12-2 9-14 13-24 10"/><path d="M92 67c7-2 12 0 11 5-1 4-7 6-13 5"/>'
       + `<ellipse cx="60" cy="54" rx="28" ry="8.5"/>${pour ? `<path d="${pour}"/>` : '<path d="M42 55c6 3 14 4 22 3"/>'}${veins}`
-      + '<path d="M46 34c-4-7 4-9 0-16M60 32c-4-7 4-9 0-16M74 34c-4-7 4-9 0-16"/>') + extras.i,
+      + '<path d="M46 34c-4-7 4-9 0-16M60 32c-4-7 4-9 0-16M74 34c-4-7 4-9 0-16"/>'
+      + '<path d="M18 100l22-6"/><ellipse cx="14" cy="101" rx="5.5" ry="3" transform="rotate(-15 14 101)"/><path d="M34 58c8 6 44 6 52 0"/>') + extras.i,
     p: wrap(SHADOW(62, 103, 46, 7)
       + '<ellipse cx="60" cy="93" rx="47" ry="12" fill="#f6f1e7"/><path d="M13 93c8 14 86 14 94 0 2 16-96 16-94 0z" fill="#c9d3da"/>'
       + `<path d="M27 54c0 25 12 39 33 39s33-14 33-39c-8 13-58 13-66 0z" fill="${cup}"/><path d="M70 91c14-5 21-18 23-37-1 23-9 34-23 37z" fill="${shade}"/>`
       + `<path d="M91 60c14-5 23 2 21 12-2 9-14 13-24 10l2-5c6 1 12-1 13-5 1-5-4-7-11-5z" fill="${cup}"/>`
-      + `<ellipse cx="60" cy="54" rx="33" ry="11" fill="${cup}"/><ellipse cx="60" cy="54" rx="28" ry="8.5" fill="${surface}"/>${pour ? `<path d="${pour}" fill="#fff8ea"/>` : '<ellipse cx="60" cy="54" rx="28" ry="8.5" fill="none" stroke="#c9925a" stroke-width="3"/>'}`) + extras.p,
+      + `<ellipse cx="60" cy="54" rx="33" ry="11" fill="${cup}"/><ellipse cx="60" cy="54" rx="28" ry="8.5" fill="${surface}"/><path d="M32 54c4-6 14-8.5 28-8.5s24 2.5 28 8.5c-6-3.5-16-5-28-5s-22 1.5-28 5z" fill="#5a3622" opacity="0.35"/><ellipse cx="14" cy="101" rx="5.5" ry="3" transform="rotate(-15 14 101)" fill="#cfc8bb"/>${pour ? `<path d="${pour}" fill="#fff8ea"/>` : '<ellipse cx="60" cy="54" rx="28" ry="8.5" fill="none" stroke="#c9925a" stroke-width="3"/>'}`) + extras.p,
     h: wrap('<path d="M35 62c1 10 5 18 11 24" stroke-width="3.5"/><path d="M40 51c5-3 11-4 16-4" stroke-width="1.5"/>'),
   };
 };
@@ -174,6 +175,7 @@ const coldGlass = (id, stops, extras = { i: '', p: '' }) => ({
   p: SHADOW(60, 106, 32, 6)
     + `<path d="M34.5 44l3.5 54c0 6 40 6 40 0l3.5-54c-8 5-39 5-47 0z" fill="url(#${id})"/><ellipse cx="58" cy="44" rx="23.5" ry="5.5" fill="${stops[0][1]}"/>`
     + '<path d="M42 52l11-2 2 11-11 2zM58 55l11-1 1 11-11 1zM47 68l10-2 2 10-10 2z" fill="#ffffff" opacity="0.55"/>'
+    + '<path d="M40 60c6 6 4 12 10 16s2 10 8 14M70 58c-4 8 2 12-2 18s2 8-2 14M56 66c2 8-4 10 0 18" fill="none" stroke="#fff8ea" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>'
     + extras.p,
   h: '<path d="M40 50l3.5 42" stroke-width="3.5"/><path d="M73 60l-1.5 22" stroke-width="1.5"/>',
 });
@@ -321,15 +323,15 @@ const NEW_ART = {
   },
 
   // ---------- drinks
-  espresso: hotCup({ surface: '#5a3622', cup: '#fbf7ee', shade: '#d3dbe0', small: true }),
-  macchiato: hotCup({ surface: '#6a4129', art: 'dot', cup: '#eab79e', shade: '#cf8f74', small: true }),
-  americano: hotCup({ surface: '#3d2a1e', cup: '#c9dcea', shade: '#a3bccd' }),
-  latte: hotCup({ surface: '#c99866', art: 'leaf', cup: '#f3e6b8', shade: '#dcc98a' }),
-  mocha: hotCup({ surface: '#6b4630', art: 'heart', cup: '#d9cfe6', shade: '#b9a9cf' }),
-  seasonal: hotCup({ surface: '#c98a4e', art: 'leaf', cup: '#f3bd86', shade: '#d8935a', extras: SEASON }),
-  cappuccino: hotCup({ surface: '#b9814f', art: 'heart', cup: '#fbf7ee', shade: '#d3dbe0' }),
-  flatwhite: hotCup({ surface: '#a8713f', art: 'leaf', cup: '#cfe0c0', shade: '#a3bd90' }),
-  matcha: hotCup({ surface: '#9dbb5e', art: 'heart', cup: '#f3cfd3', shade: '#dba1aa' }),
+  espresso: hotCup({ surface: '#5a3622', cup: '#fbf6ea', shade: '#d6cdbd', small: true }),
+  macchiato: hotCup({ surface: '#6a4129', art: 'dot', cup: '#fbf6ea', shade: '#d6cdbd', small: true }),
+  americano: hotCup({ surface: '#3d2a1e', cup: '#fbf6ea', shade: '#d6cdbd' }),
+  latte: hotCup({ surface: '#c99866', art: 'leaf', cup: '#fbf6ea', shade: '#d6cdbd' }),
+  mocha: hotCup({ surface: '#6b4630', art: 'heart', cup: '#fbf6ea', shade: '#d6cdbd' }),
+  seasonal: hotCup({ surface: '#c98a4e', art: 'leaf', cup: '#fbf6ea', shade: '#d6cdbd', extras: SEASON }),
+  cappuccino: hotCup({ surface: '#b9814f', art: 'heart', cup: '#fbf6ea', shade: '#d6cdbd' }),
+  flatwhite: hotCup({ surface: '#a8713f', art: 'leaf', cup: '#fbf6ea', shade: '#d6cdbd' }),
+  matcha: hotCup({ surface: '#9dbb5e', art: 'heart', cup: '#fbf6ea', shade: '#d6cdbd' }),
   icedlatte: coldGlass('g-icedlatte', [[0, '#5e3923'], [0.45, '#b98658'], [1, '#f7ecd9']], { i: STRAW, p: '' }),
   icedmatcha: coldGlass('g-icedmatcha', [[0, '#7fa348'], [0.5, '#b7cf86'], [1, '#f8f4e6']], { i: STRAW, p: '' }),
   juice: coldGlass('g-orange', [[0, '#fde59a'], [1, '#f2941a']], { i: citrus.i + MINT, p: citrus.p + MINT_P }),
@@ -345,12 +347,25 @@ const WASHES = [
   ['#c9dcea', '#cfdcc0'], // water and reeds
 ];
 
+// One shared palette: every colour is softened and warmed a little, the way a painter
+// mixes a touch of the same earth tone into everything so the whole page sits together.
+const tone = s => s.replace(/#([0-9a-f]{6})\b/gi, (m, h) => {
+  let [r, g, b] = [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16) / 255);
+  const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2;
+  if (l < 0.3) return m; // keep the darks dark
+  const grey = 0.3 * r + 0.59 * g + 0.11 * b, keep = 0.66;
+  [r, g, b] = [r, g, b].map(v => grey + (v - grey) * keep);
+  const sand = [0.93, 0.84, 0.7], mix = 0.16;
+  [r, g, b] = [r, g, b].map((v, i) => v + (sand[i] - v) * mix);
+  return '#' + [r, g, b].map(v => Math.round(Math.min(1, Math.max(0, v)) * 255).toString(16).padStart(2, '0')).join('');
+});
+
 // Paint first, then the ink drawn twice a little apart, the way a quick pen sketch doubles its lines.
 const icon = name => {
   const a = ART[name] || { i: '', p: '' };
   const box = a.vb || '0 0 120 120';
   if (a.classic) return `<svg class="ink ink-classic" viewBox="${box}" aria-hidden="true"><g class="paint" filter="url(#paint-soft)">${a.p}</g><g filter="url(#wobble)">${a.i}</g></svg>`;
-  return `<svg class="ink" viewBox="${box}" aria-hidden="true">${a.defs ? `<defs>${a.defs}</defs>` : ''}<g class="paint" filter="url(#paint)">${a.p}</g><g class="hl" filter="url(#wobble2)">${a.h || ''}</g><g filter="url(#wobble)">${a.i}</g><g class="ink-2" filter="url(#wobble2)">${a.i}</g>${a.t || ''}</svg>`;
+  return `<svg class="ink" viewBox="${box}" aria-hidden="true">${a.defs ? `<defs>${tone(a.defs)}</defs>` : ''}<g class="paint" filter="url(#paint)">${tone(a.p)}</g><g class="hl" filter="url(#wobble2)">${a.h || ''}</g><g filter="url(#wobble)">${a.i}</g><g class="ink-2" filter="url(#wobble2)">${a.i}</g>${a.t || ''}</svg>`;
 };
 
 const ARROW = `<svg class="ink arrow" viewBox="0 0 60 30" aria-hidden="true"><g filter="url(#wobble)"><path d="M56 8C40 2 20 6 8 20"/><path d="M8 20l2-10M8 20l10-1"/></g></svg>`;
@@ -405,16 +420,19 @@ document.body.insertAdjacentHTML('afterbegin', `<svg width="0" height="0" style=
     <feGaussianBlur stdDeviation="0.5"/>
   </filter>
   <filter id="paint" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
-    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="8" result="noise"/>
-    <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" result="moved"/>
-    <feGaussianBlur in="moved" stdDeviation="0.6" result="soft"/>
-    <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="3" seed="23" result="grain"/>
-    <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.42" result="pool"/>
-    <feComposite in="soft" in2="pool" operator="in" result="mottled"/>
-    <feMorphology in="soft" operator="erode" radius="1.3" result="inner"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="8" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" result="moved"/>
+    <feGaussianBlur in="moved" stdDeviation="0.5" result="soft"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="23" result="wet"/>
+    <feColorMatrix in="wet" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.9 1.36" result="pool"/>
+    <feComposite in="soft" in2="pool" operator="in" result="washed"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5" result="tooth"/>
+    <feColorMatrix in="tooth" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.45 1.22" result="grain"/>
+    <feComposite in="washed" in2="grain" operator="in" result="granular"/>
+    <feMorphology in="soft" operator="erode" radius="1.1" result="inner"/>
     <feComposite in="soft" in2="inner" operator="out" result="rim"/>
-    <feComponentTransfer in="rim" result="edge"><feFuncA type="linear" slope="0.5"/></feComponentTransfer>
-    <feMerge><feMergeNode in="mottled"/><feMergeNode in="edge"/></feMerge>
+    <feComponentTransfer in="rim" result="edge"><feFuncA type="linear" slope="0.42"/></feComponentTransfer>
+    <feMerge><feMergeNode in="granular"/><feMergeNode in="edge"/></feMerge>
   </filter>
   <filter id="watercolour" x="-30%" y="-30%" width="160%" height="160%">
     <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="11" result="noise"/>
